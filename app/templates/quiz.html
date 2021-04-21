@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styling/quiz.css') }}">
+    <title>Quiz</title>
+    <!-- This is the page where the user will answer a 10 question quiz.
+         Each question will be displayed on the page 1 at a time.
+         Once the user has selected between the 3 options for the current question, they click on the submit button and the next question will render.
+         Once the user has reached the end of the 10 questions, the quiz_result.html template will be rendered, where the user can view their score for the particular quiz they have just taken.
+    -->
+</head>
+<body>
+<div class="header">
+    <h1 class="head">Test</h1>
+</div>
+<div class="quiz">
+<!-- 16/03/2021 - New Quiz Page html -->
+    <div class="questions">
+        <p class="QuesDesc">Question {{ question.questionID }}: {{ question.description }}</p>
+        <form method="POST" action="{{ url_for('hpApp.quiz_display', quiz_id=quiz_id) }}">
+            {{ form.csrf_token() }} <!-- 18/03/2021 - change made -->
+            {{ form.hidden_tag() }}
+            {% if question.options | length == 0 %}
+                <p>No options available</p>
+            {% else %}
+                    {% for subfield in form.answer %}
+                        {{ subfield }}
+                        {{ subfield.label }}
+                {% endfor %}
+            {% endif %}
+        <br>
+        {{ form.submit(class="renderNextQBtn") }} <!-- 18/03/2021 - change made -->
+        </form>
+    </div>
+</div>
+</body>
+</html>

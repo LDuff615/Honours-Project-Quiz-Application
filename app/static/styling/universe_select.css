@@ -1,0 +1,40 @@
+h1.header
+{
+    color: springgreen;
+    font-size: 100px;
+    font-family: "AR DESTINE";
+    text-align: center;
+    position: center;
+}
+
+container
+{
+    position: relative;
+    width: 50%;
+}
+
+img {
+    width: 150px;
+    height: 100px;
+}
+
+.column
+{
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+
+.label {
+    padding: 8px;
+    font-family: "AR DESTINE";
+    text-align: center;
+}
+.info{background-color: gold;}
+
+body
+{
+    background-image: url(../images/space.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+}

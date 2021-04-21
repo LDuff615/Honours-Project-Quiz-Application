@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styling/char_select.css') }}">
+    <title>Character Selection</title>
+    <!-- This is the page where users will be able to select between several characters/topics related to the domain they selected
+         In the case of Marvel Comics, the characters the user can choose from are: CAPTAIN AMERICA & VENOM
+         In the case of DC Comics, the characters the user can choose from are: GREEN LANTERN & REVERSE FLASH-->
+</head>
+<body>
+    <h1 class="header">Select your Character</h1>
+    <!-- 02/04/2021 - adding in functionality to allow for flash messages -->
+    <div class="container" style="min-height:100%; width:80%">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div id="alertmessage" class="alert alert-warning">
+                        <button type="button" class="close" onclick="close_flash_message()">X</button>
+                            {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <div class="row">
+        {% for topic in cResults %}
+        <div class="column">
+            <!-- This will allow users to click on the logo of their desired topic, which will pass the topic ID of the chosen topic to def quiz() on views.py -->
+            <a href="{{ url_for('hpApp.quiz', chosenChar=topic.topicID) }}"><img src="{{ url_for('static', filename='images/') }}{{ topic['domainID'] }}/{{ topic['topicID'] }}/icon.png"></a> <!-- 08/03/2021 - REPLACED INITIAL FILEPATH WITH NEW ONE -->
+            <div class="container">
+                <div class="middle">
+                    <div class="text">{{ topic.name }}</div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+<script>
+    function close_flash_message()
+    {
+        document.getElementById('alertmessage').style.display='none';
+        return false;
+    }
+</script>
+</html>

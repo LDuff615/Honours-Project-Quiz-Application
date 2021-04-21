@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styling/menu.css') }}">
+    <title>Menu</title>
+    <!-- This page will be the first page that the users come to-->
+</head>
+<body>
+    <h1 class="title">12th Level Intellect</h1>
+<div class="button-centred">
+    <!-- 29/03/2021 - button will now point to new route & function (used to set up session) -->
+    <button type="buttom" onclick="window.location.href='{{ url_for('hpApp.setSession') }}'">Test your Knowledge</button>
+</div>
+</body>
+</html>

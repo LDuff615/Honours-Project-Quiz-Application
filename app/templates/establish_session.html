@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Session Setup</title>
+</head>
+<body>
+<div class="header">
+    <h1 class="head">Session Setup</h1>
+</div>
+<div class="acknowledgement">
+    <form method="POST" action="{{ url_for('hpApp.setSession') }}">
+        {{ form.csrf_token() }}
+        <fieldset class="form-field">
+            {{ form.email.label }}
+            {{ form.email(size=100) }}
+        </fieldset>
+        {{ form.submit }}
+    </form>
+</div>
+</body>
+</html>

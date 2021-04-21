@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styling/quiz_result.css') }}">
+    <title>Quiz Results</title>
+    <!-- This is the page where users can view their score for a specific quiz they have recently taken
+         Here, they will be able to see which questions they answered correctly, and which they answered wrongly
+    -->
+</head>
+<body>
+<div class="header">
+    <h1 class="head">Quiz Results</h1>
+</div>
+<!-- 24/03/2021 - This table will create a row for each question, and display the question, the selected answer & the correct answer -->
+<table>
+    <tbody>
+    <!-- For each question in the result set -->
+    {% for question in quizResults %}
+        <tr>
+            <td class="qDesc">
+                Question #{{ question.questionID }}: {{ question.description }}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

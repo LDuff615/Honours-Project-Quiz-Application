@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styling/universe_select.css') }}">
+    <title>Universe Selection</title>
+    <!-- This is the page where users will select their desired universe/domain to pick characters/topics from
+         The selection of domains includes Marvel Comics & DC Comics -->
+</head>
+<body>
+    <h1 class="header">Select your Universe</h1>
+    <div class="row">
+        {% for domain in result %}
+        <div class="column">
+            <!-- This will allow users to click on the logo of their desired domain, and pass the ID of the domain to def character() on views.py -->
+            <a href="{{ url_for('hpApp.character', chosenUni=domain.domainID) }}"><img src="{{ url_for('static', filename='images/') }}{{ domain['domainID'] }}/logo.png" class="image"></a> <!-- 08/03/2021 - REPLACED INITIAL FILEPATH WITH NEW ONE -->
+            <br>
+            <br>
+            <span class="label info">{{ domain.name }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

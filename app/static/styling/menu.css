@@ -1,0 +1,45 @@
+/* This is the styling for the button in menu.html*/
+button
+{
+    background-color: gold;
+    border: 1pc;
+    color: black;
+    padding: 25px;
+    text-align: center;
+    display: inline-block;
+    font-size: 22px;
+    cursor: pointer;
+    border-radius: 12px;
+    font-family: "AR DESTINE";
+    display: inline-block;
+    box-shadow: 0 9px #999;
+}
+button:hover {background-color: darkgoldenrod}
+
+button:active{
+    background-color: darkgoldenrod;
+    box-shadow: 0 5px #666;
+    transform: translate(4px);
+}
+
+.button-centred{
+    text-align: center;
+}
+
+/* This is the styling for the header in menu.html*/
+h1.title
+{
+    color: springgreen;
+    font-size: 100px;
+    font-family: "AR DESTINE";
+    text-align: center;
+    position: center;
+}
+
+/* This is the styling for the the body in menu.html*/
+body
+{
+    background-image: url(../images/space.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+}

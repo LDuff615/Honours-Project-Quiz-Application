@@ -1,0 +1,13 @@
+h1.head {
+    color: springgreen;
+    font-size: 100px;
+    font-family: "AR DESTINE";
+    text-align: center;
+    position: center;
+}
+
+body {
+    background-image: url(../images/space.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+}
